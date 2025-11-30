@@ -36,12 +36,7 @@ const buildGamerRepository = ({ logger, getGamerById, createGamer, addGamesToGam
 function getInitGames(initLevels, getUUID) {
     return initLevels.map(initLevel => {
         const game_id = getUUID();
-        const { level_id, level_name, level_image } = initLevel;
-        const level_info = {
-            level_id,
-            level_name,
-            level_image
-        };
+        const level_info = initLevel;
         const game_status = initLevel.level_order == 1 ? GameStatus.NEW : GameStatus.LOCK;
         return {
             game_id,
