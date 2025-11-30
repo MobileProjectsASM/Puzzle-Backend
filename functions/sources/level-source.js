@@ -4,7 +4,7 @@ const buildLevelSource = ({ logger, firestore }) => {
     const TAG = "buildLevelSource";
     const LEVEL_COLLECTION = "levels";
     const LevelProperties = {
-        LEVEL_ORDER: "level_order"
+        LEVEL_ORDER: "levelOrder"
     };
 
     return {
