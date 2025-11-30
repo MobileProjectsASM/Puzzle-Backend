@@ -14,7 +14,7 @@ const buildGamerSource = ({ logger, firestore }) => {
         },
         createGamer: async (gamerData) => {
             try {
-                const gamerRef = firestore.collection(GamerCollections.GAMER_COLLECTION).doc(gamerData.gamer_id);
+                const gamerRef = firestore.collection(GamerCollections.GAMER_COLLECTION).doc(gamerData.gamerId);
                 await gamerRef.set(gamerData);
             } catch (error) {
                 logger.error(TAG, error);
@@ -26,7 +26,7 @@ const buildGamerSource = ({ logger, firestore }) => {
                 const gamesRef = firestore.collection(GamerCollections.GAMER_COLLECTION).doc(gamerId).collection(GamerCollections.GAMES_COLLECTION);
                 const batch = firestore.batch();
                 games.forEach(game => {
-                    const gameRef = gamesRef.doc(game.game_id)
+                    const gameRef = gamesRef.doc(game.gameId)
                     batch.set(gameRef, game)
                 });
                 await batch.commit();

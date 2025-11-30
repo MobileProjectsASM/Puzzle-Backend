@@ -23,8 +23,8 @@ const buildGamerRepository = ({ logger, getGamerById, createGamer, addGamesToGam
                 const { initLevels, ...gamerData } = data;
                 const initGames = getInitGames(initLevels, getUUID);
                 await createGamer(gamerData);
-                await addGamesToGamer(gamerData.gamer_id, initGames);
-                return gamerData.gamer_id;
+                await addGamesToGamer(gamerData.gamerId, initGames);
+                return gamerData.gamerId;
             } catch (error) {
                 logger.error(TAG, error);
                 throw error;
@@ -35,13 +35,13 @@ const buildGamerRepository = ({ logger, getGamerById, createGamer, addGamesToGam
 
 function getInitGames(initLevels, getUUID) {
     return initLevels.map(initLevel => {
-        const game_id = getUUID();
-        const level_info = initLevel;
-        const game_status = initLevel.level_order == 1 ? GameStatus.NEW : GameStatus.LOCK;
+        const gameId = getUUID();
+        const levelInfo = initLevel;
+        const gameStatus = initLevel.levelOrder == 1 ? GameStatus.NEW : GameStatus.LOCK;
         return {
-            game_id,
-            level_info,
-            game_status
+            gameId,
+            levelInfo,
+            gameStatus
         };
     });
 }

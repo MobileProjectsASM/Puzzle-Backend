@@ -21,7 +21,7 @@ exports.createGamer = functions.https.onCall(async (data, context) => {
     if (!gamerId || gamerId == "") throw new HttpsError("invalid-argument", "gamer id is null, undefined or blank");
     const firestore = admin.firestore();
     const gamerSource = buildGamerSource({ logger, firestore });
-    const gamerRepository = buildGamerRepository({ logger, getUUID: crypto.randomUUID, ...gamerSource, });
+    const gamerRepository = buildGamerRepository({ logger, getUUID: crypto.randomUUID, ...gamerSource });
     const gamerExists = await gamerRepository.verifyGamerExists(gamerId);
     if (gamerExists) throw new HttpsError("already-exists", "gamer exists");
     const levelSource = buildLevelSource({ logger, firestore });
