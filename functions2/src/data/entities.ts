@@ -18,8 +18,8 @@ type Style = {
 }
 
 export type Level = {
-    levelId: String;
-    levelImage: String;
+    levelId: string;
+    levelImage: string;
     levelName: Language;
     levelOrder: number;
     metrics: any;
@@ -28,7 +28,7 @@ export type Level = {
 }
 
 export type Game = {
-    gameId: String;
+    gameId: string;
     levelInfo: Level,
     gameStatus: GameStatus;
 }

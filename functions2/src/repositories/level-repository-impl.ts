@@ -1,6 +1,5 @@
 import { Level } from "../data/entities";
-import { LevelSource } from "../sources/abstract/sources";
-import { Logger } from "../sources/abstract/util-sources";
+import { LevelSource, Logger } from "../sources/sources";
 import { LevelRepository } from "./repositories";
 
 export class LevelRepositoryImpl implements LevelRepository {
@@ -17,10 +16,10 @@ export class LevelRepositoryImpl implements LevelRepository {
             return initLevels;
         } catch (error) {
             if (error instanceof Error) {
-                this.logger.error(LevelRepositoryImpl.TAG, 'error to create gamer', error)
+                this.logger.error(LevelRepositoryImpl.TAG, 'error to get init levels', error)
                 throw error
             } else {
-                this.logger.error(LevelRepositoryImpl.TAG, 'error to create gamer, unknown error')
+                this.logger.error(LevelRepositoryImpl.TAG, 'error to get init levels, unknown error')
                 throw new Error("unknown error")
             }
         }
