@@ -1,7 +1,7 @@
 import { Gamer, Level, Game, GameStatus } from "../data/entities"
-import { GamerSource } from "../sources/abstract/gamer-source";
+import { GamerSource } from "../sources/abstract/sources";
 import { Logger, RandomId } from "../sources/abstract/util-sources";
-import { GamerRepository } from "./abstract/gamer-repository";
+import { GamerRepository } from "./repositories";
 
 export class GamerRepositoryImpl implements GamerRepository {
     static TAG: string = "gamer-repository";
